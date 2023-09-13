@@ -1,0 +1,77 @@
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+}
+
+header {
+  padding: 0;  
+  
+}
+
+.navbar {
+  background-color: transparent; /* Make the navbar transparent */
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+}
+
+.header-img {
+  background-image: url('../images/Poster.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex-grow: 1; /* Make the background image take up the remaining space */
+  min-height: 200px; /* Set a minimum height for the background image */
+}
+
+
+.sign-in{
+  color: white;
+  text-decoration: none;
+}
+
+
+.transparent-input {
+  background: url('../images/Poster.svg') no-repeat center center fixed;
+  background-size: cover;
+  border: 1px solid white;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  padding: 10px 0;
+  border-radius: 20px;
+}
+
+
+.transparent-input::placeholder{
+  color: white;
+  padding-left: 30px;
+}
+
+.John-Wick{
+  position: absolute;
+  top: 40%;
+  left: 8%;
+  width: 25%;
+  height: 40%;
+  line-height: 1.6rem;
+}
+
+.header-btn{
+  background-color: #BE123C;
+  border: 1px solid #BE123C;
+  border-radius: 12px;
+  color: white;
+}
+
+.search-icon{
+  position: absolute;
+  left: 74%;
+}
+
+.movie-container{
+  color: black;
+}
