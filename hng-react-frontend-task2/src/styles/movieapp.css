@@ -75,3 +75,24 @@ header {
 .movie-container{
   color: black;
 }
+
+
+.footer{
+  width: 50%;
+  margin: 10% auto;
+}
+
+
+
+.movie-parent{
+  border: 1px solid yellow;
+}
+
+.movie-con{
+  border: 1px solid red;
+}
+
+.movie-img{
+  margin: 10px auto;
+  padding: 20px;   
+}
