@@ -12,6 +12,7 @@ import Calendar from '../images/Calendar.svg';
 import Logout from '../images/Logout.svg';
 import TwoTickets from '../images/TwoTickets.svg';
 import List from '../images/List.svg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -70,7 +71,7 @@ function SideBar(){
             <div className="sidebar shadow-lg mt-2">
                 <img src={MovieLogo} alt="" className="movie-logo mt-3 ps-4" />
                 <ul className="pt-5">
-                   <a href="" ><li className="pb-5"><span className="pe-3"><img src={Home} alt="" /></span>Home</li></a> 
+                   <a href="" ><li className="pb-5"><span className="pe-3"><img src={Home} alt="" /></span><Link to ="/">Home</Link></li></a> 
                     <a href=""><li className="pb-5"><span className="pe-3"><img src={MovieProjector} alt="" /></span>Movies</li></a>
                    <a href=""><li className="pb-5"><span className="pe-3"><img src={TVshow} alt="" /></span>TV Series</li></a> 
                    <a href=""><li className="pb-5"><span className="pe-3"><img src={Calendar} alt="" /></span>Upcoming</li></a> 

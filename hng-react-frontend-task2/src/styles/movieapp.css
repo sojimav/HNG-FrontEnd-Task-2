@@ -108,6 +108,7 @@ header {
 
 .about-movie{
   width: 60%;
+  text-align: start;
 }
 
 .other-options{

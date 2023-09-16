@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/movieapp.css';
 import tv from '../images/Logo.svg';
@@ -99,7 +101,27 @@ let movieLists = [
 
 
 
+
+
 function Header() {
+
+const [movieData, setMovieData] = useState(null);
+
+useEffect(() => {
+  // Make the API request when the component mounts
+  axios
+    .get('https://api.themoviedb.org/3/movie/550?api_key=c263a467eb5445ded96c8027def713c1')
+    .then((response) => {
+      // Update the state with the API data
+      setMovieData(response.data);
+      
+    })
+    .catch((error) => {
+      console.error('Error fetching data from the API:', error);
+    });
+}, []);
+
+    console.log(movieData);
     return (
         <div>
              <div className='container-fluid parent-container px-0'>
@@ -119,15 +141,15 @@ function Header() {
        
         <div className='header-img img'></div>
 
-        <div className='container John-Wick'>
-            <h2 className='fs-3 pb-3'>John Wick 3 : Parabellum</h2>
+        <div className='container John-Wick homepage'>
+            <h2 className='fs-3 pb-3 original_title'>John Wick 3 : Parabellum</h2>
             <span>
-                <img src={imbd} alt="" />
-                <span className='ps-3 pe-3'>860/100</span>
+                <img src={imbd} alt=""  className='poster_path'/>
+                <span className='ps-3 pe-3 popularity'>860/100</span>
                 <img src= {tomato} alt="" className='ps-3' />
                 <span className='ps-2 percent'>97%</span>
             </span>
-            <p className='pt-3'>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>   
+            <p className='pt-3 overview'>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>   
             <button className='header-btn py-2 px-5'><span className='pe-2'><img src= {Play} alt="" /></span>Watch trailer</button>
         </div>
 
@@ -142,6 +164,8 @@ function Header() {
   }
   
 
+
+
   function FeaturedMovie({movieList}) {
     return (
       <div className='container pt-5 movie-container mt-5'>
@@ -153,10 +177,13 @@ function Header() {
         <div className='row'>
           {movieList.map((movie, index) => (
             <div className='col-md-3 g-5' key={index}>
-              <img src={movie.image} alt='' className='container border shadow-lg'/>
+              <Link to= '/movies'>
+              <img src={movie.image} alt='' className='container border shadow-lg logo_path'/>
+              </Link>
+             
               <span className='lh-sm'>
-                <p className='pt-4'>{movie.p1}</p>
-                <p className='fw-bold'>{movie.p2}</p>
+                <p className='pt-4 origin_country'>{movie.p1}</p>
+                <p className='fw-bold name'>{movie.p2}</p>
                 <span>
                   <img src={imbd} alt='' className='img-log' />
                   <span className='ps-3 pe-3 ratings'>{movie.ratings}</span>
